@@ -7,11 +7,23 @@
   display: none;
 }
 
+
 /* Hide scrollbar for IE, Edge and Firefox */
 :root {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  scroll-behavior: smooth;
 }
+
+/* global.css or styles.css */
+.course-card-wrapper p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
