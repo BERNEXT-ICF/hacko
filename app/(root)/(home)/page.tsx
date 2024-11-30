@@ -20,13 +20,13 @@ const Home = () => {
         <WelcomeCard />
       </section>
 
-      <section className="flex flex-col items-center justify-center px-6 sm:px-10 mt-10">
+      <section id="video-section" className="flex flex-col items-center justify-center px-6 sm:px-10 mt-10">
         <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
           Our Courses are Suitable for ...
         </h1>
 
         {/* Video Section with Gray Background */}
-        <div id="video-section" className="w-full max-w-4xl mb-8 rounded-lg p-6">
+        <div  className="w-full max-w-4xl mb-8 rounded-lg p-6">
           <iframe
             className="w-full h-64 sm:h-96 rounded-lg"
             src="https://www.youtube.com/embed/bC8fvcpocBU?si=VQikwIWIW3i8dJnD"
