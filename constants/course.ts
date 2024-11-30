@@ -80,32 +80,3 @@ export const courses = [
       courseType: 'iot', // Added courseType
     },
   ];
-
-export const getCourseTypeColor = (courseType: string): string => {
-  switch (courseType) {
-    case 'web':
-      return 'bg-blue-500';  // Blue for Web
-    case 'mobile':
-      return 'bg-green-500'; // Green for Mobile
-    case 'data':
-      return 'bg-yellow-500'; // Yellow for Data Science
-    case 'design':
-      return 'bg-purple-500'; // Purple for Design
-    case 'cloud':
-      return 'bg-indigo-500'; // Indigo for Cloud
-    case 'security':
-      return 'bg-red-500'; // Red for Security
-    case 'ai':
-      return 'bg-orange-500'; // Orange for AI
-    case 'devops':
-      return 'bg-teal-500'; // Teal for DevOps
-    case 'blockchain':
-      return 'bg-pink-500'; // Pink for Blockchain
-    case 'iot':
-      return 'bg-gray-500'; // Gray for IoT
-    default:
-      return 'bg-gray-500'; // Default color if type is unknown
-  }
-};
-
-  
