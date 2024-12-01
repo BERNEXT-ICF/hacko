@@ -37,6 +37,10 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         return 'bg-pink-500'; 
       case 'iot':
         return 'bg-gray-500'; 
+      case 'game':
+        return 'bg-lime-500';
+      case 'marketing':
+        return 'bg-cyan-500';
       default:
         return 'bg-gray-500'; 
     }

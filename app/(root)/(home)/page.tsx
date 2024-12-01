@@ -8,7 +8,7 @@ import { courses } from '@/constants/course';
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const courseTypes = ['all', ...Array.from(new Set(courses.map(course => course.courseType)))] ;
+  const courseTypes = ['all', ...Array.from(new Set(courses.map(course => course.courseType)))];
 
   const filteredCourses = selectedCategory === 'all'
     ? courses
@@ -26,7 +26,7 @@ const Home = () => {
         </h1>
 
         {/* Video Section with Gray Background */}
-        <div  className="w-full max-w-4xl mb-8 rounded-lg p-6">
+        <div className="w-full max-w-4xl mb-8 rounded-lg p-6">
           <iframe
             className="w-full h-64 sm:h-96 rounded-lg"
             src="https://www.youtube.com/embed/bC8fvcpocBU?si=VQikwIWIW3i8dJnD"
@@ -93,7 +93,10 @@ const Home = () => {
         {/* Courses List */}
         <div className="flex overflow-x-auto space-x-4 py-4 px-6 sm:px-10 scrollbar-hide">
           {filteredCourses.map((course) => (
-            <div key={course.id} className="flex-shrink-0 w-64 mt-12">
+            <div
+              key={course.id}
+              className="flex-shrink-0 w-64 mt-12 transition-transform transform hover:scale-105"
+            >
               {/* Wrap CourseCard with a div to apply line-clamp for description */}
               <div className="line-clamp-2">
                 <CourseCard course={course} />

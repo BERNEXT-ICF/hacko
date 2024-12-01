@@ -79,4 +79,20 @@ export const courses = [
       classCode: 'IOT1001',
       courseType: 'iot', // Added courseType
     },
+    {
+      id: 11,
+      title: 'Game Development with Unity',
+      description: 'Create 2D and 3D games using Unity and C#.',
+      image: 'https://media.istockphoto.com/id/469806772/vector/yellow-and-white-waves-seamless-pattern.jpg?s=612x612&w=0&k=20&c=f71etxOPJvaKEwCbGuPfNZi-WWGJafpYoTv2JE4eebQ=',
+      classCode: 'GD1101',
+      courseType: 'game', // Added courseType
+    },
+    {
+      id: 12,
+      title: 'Digital Marketing',
+      description: 'Learn digital marketing strategies and tools to grow your business online.',
+      image: 'https://media.istockphoto.com/id/469806772/vector/yellow-and-white-waves-seamless-pattern.jpg?s=612x612&w=0&k=20&c=f71etxOPJvaKEwCbGuPfNZi-WWGJafpYoTv2JE4eebQ=',
+      classCode: 'DM1201',
+      courseType: 'marketing', // Added courseType
+    }
   ];
