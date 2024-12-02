@@ -1,4 +1,6 @@
+// components/CourseCard.tsx
 import React from 'react';
+import Link from 'next/link';
 
 interface Course {
   id: number;
@@ -14,39 +16,39 @@ interface CourseCardProps {
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
-  // Fungsi untuk menentukan warna berdasarkan jenis course
+  // Function to determine the color based on the course type
   const getCourseTypeColor = (courseType: string): string => {
     switch (courseType) {
       case 'web':
         return 'bg-blue-500';
       case 'mobile':
-        return 'bg-green-500'; 
+        return 'bg-green-500';
       case 'data':
-        return 'bg-yellow-500'; 
+        return 'bg-yellow-500';
       case 'design':
-        return 'bg-purple-500'; 
+        return 'bg-purple-500';
       case 'cloud':
-        return 'bg-indigo-500'; 
+        return 'bg-indigo-500';
       case 'security':
-        return 'bg-red-500'; 
+        return 'bg-red-500';
       case 'ai':
-        return 'bg-orange-500'; 
+        return 'bg-orange-500';
       case 'devops':
-        return 'bg-teal-500'; 
+        return 'bg-teal-500';
       case 'blockchain':
-        return 'bg-pink-500'; 
+        return 'bg-pink-500';
       case 'iot':
-        return 'bg-gray-500'; 
+        return 'bg-gray-500';
       case 'game':
         return 'bg-lime-500';
       case 'marketing':
         return 'bg-cyan-500';
       default:
-        return 'bg-gray-500'; 
+        return 'bg-gray-500';
     }
   };
 
-  const courseTypeColor = getCourseTypeColor(course.courseType); 
+  const courseTypeColor = getCourseTypeColor(course.courseType);
 
   return (
     <div className="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
@@ -72,10 +74,12 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </span>
         </div>
 
-        {/* Enroll Button */}
-        <button className="bg-yellow-300 text-black py-2 px-4 rounded-md font-semibold text-sm hover:bg-yellow-400">
-          Enroll Now
-        </button>
+        {/* Link to Course Detail Page */}
+        <Link href={`/course/${course.id}`}>
+          <button className="bg-yellow-300 text-black py-2 px-4 rounded-md font-semibold text-sm hover:bg-yellow-400">
+            Enroll Now
+          </button>
+        </Link>
       </div>
     </div>
   );
