@@ -1,12 +1,13 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 
-let authProvider: { setIsAuthenticated: (value: boolean) => void } | null = null;
+let authProvider: { setIsAuthenticated: (value: boolean) => void } | null =
+  null;
 export const setAuthProvider = (provider: typeof authProvider) => {
   authProvider = provider;
 };
 
 const config: AxiosRequestConfig = {
-  baseURL: process.env.NEXT_PUBLIC_API_URL_CLASS,
+  baseURL: process.env.NEXT_PUBLIC_API_URL_DEV,
   withCredentials: true,
 };
 
