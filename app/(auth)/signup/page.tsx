@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { AiFillEye, AiFillEyeInvisible, AiOutlineArrowLeft } from 'react-icons/ai';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -35,6 +35,10 @@ const SignUp = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md md:max-w-sm">
         <form onSubmit={handleSubmit} className="flex flex-col">
+          <p className="text-xs text-left flex items-center text-blue-500 mb-4">
+            <AiOutlineArrowLeft className="mr-1" />
+            <a href="/" className="hover:underline">Back to Homepage</a>
+          </p>
           <h2 className="text-2xl text-center">Sign Up to Hack[o]</h2>
           <p className="text-gray-500 text-sm py-4">Create a new account.</p>
           <label className="mb-2 text-sm">
