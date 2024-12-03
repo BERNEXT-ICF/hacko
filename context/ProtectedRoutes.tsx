@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "./AuthContext";
 import { useEffect, useState } from "react";
 import Loading from "@/components/Loading";
@@ -9,37 +11,38 @@ export const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const { isAuthenticated, checkAuth } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
     const verifyAuth = async () => {
-      if (isAuthenticated) {
+      try {
+        const isAuth = await checkAuth();
+
+        if (!isAuth && pathname !== "/login") {
+          router.push("/login");
+        }
+
+        if (isAuth && pathname === "/login") {
+          router.push("/dashboard");
+        }
+      } finally {
         setIsChecking(false);
-        return;
       }
-
-      if (!(await checkAuth()) && router.pathname !== "/login") {
-        router.push("/login");
-      }
-
-      setIsChecking(false);
     };
 
     verifyAuth();
-  }, [isAuthenticated, checkAuth, router]);
+  }, [checkAuth, pathname, router]);
 
   if (isChecking) {
     return <Loading />;
   }
 
-  if (router.pathname === "/login" && isAuthenticated) {
-    router.push("/dashboard");
-    return null;
-  }
-
-  if (router.pathname === "/login") {
+  // Tampilkan halaman login atau halaman yang diizinkan
+  if (pathname === "/login" || isAuthenticated) {
     return <>{children}</>;
   }
 
-  return isAuthenticated ? <>{children}</> : null;
+  // Jangan render apa pun jika tidak diizinkan
+  return null;
 };

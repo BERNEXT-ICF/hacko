@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { api, setAuthProvider } from "@/services/api";
 import { UseMutationResult } from "react-query";
