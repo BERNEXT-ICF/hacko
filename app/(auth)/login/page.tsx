@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +20,10 @@ const Login = () => {
   const handleGoogleLogin = () => {
     // Handle Google login logic here
     console.log('Login with Google');
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -38,13 +44,27 @@ const Login = () => {
           </label>
           <label className="mb-2 text-sm">
             Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="mb-2 p-2 text-base border rounded w-full"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="mb-2 p-2 text-base border rounded w-full"
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute right-2 top-2 text-gray-500"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? (
+                  <AiFillEye size={24} />
+                ) : (
+                  <AiFillEyeInvisible size={24} />
+                )}
+              </button>
+            </div>
           </label>
           <div className="flex items-center justify-between mb-4">
             <label className="flex items-center text-sm">
