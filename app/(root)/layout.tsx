@@ -1,4 +1,5 @@
 // components/RootLayout.tsx
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import React, { ReactNode } from 'react';
 
@@ -12,9 +13,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       <div>{children}</div>
 
       {/* Footer */}
-      {/* <footer className="bg-gray-800 text-white p-4 text-center mt-8">
-        <p>&copy; 2024 MyApp. All Rights Reserved.</p>
-      </footer> */}
+      <Footer />
     </main>
   );
 };
